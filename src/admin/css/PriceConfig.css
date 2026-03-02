@@ -1,0 +1,79 @@
+.conf-step__wrapper-block {
+    width: 100%;
+    max-width: 962px;
+    position: relative;
+}
+
+.price-configuration {
+    gap: 12px;
+
+}
+
+.places {
+    margin-bottom: 29px;
+}
+
+.price-configuration__paragraph {
+    color: #000;
+}
+
+.price-conf-step__legend {
+    display: flex;
+    position: relative;
+}
+
+.price-conf-step-label {
+    font-size: 12px;
+    color: #848484;
+    display: grid;
+}
+
+.price-conf-step-input {
+    width: 100px;
+    height: 36px;
+    border: 1px solid #B7B7B7;
+    background-color: #fff;
+    color: #000;
+}
+
+.conf-step__text {
+    width: max-content;
+    height: 16px;
+    position: absolute;
+    top: 24px;
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #848484;
+}
+
+.per {
+    padding: 3px;
+    position: absolute;
+    left: 110px;
+    top: 23px;
+}
+
+
+.chair__explanation {
+    position: absolute;
+    left: 162px;
+    top: 23px;
+}
+
+.chair-position {
+    position: absolute;
+    top: 23px;
+    left: 132px;
+}
+
+.price-vip-input {
+    width: 56px;
+}
+
+.regular-chair {
+    border: 1px solid #393939;
+    background-color: #C4C4C4;
+}

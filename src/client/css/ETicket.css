@@ -1,0 +1,101 @@
+.ticket-container {
+  width: 100%;
+  max-width: 990px;
+  padding-bottom: 20px;
+  background-color: rgba(241, 235, 230, 0.95);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-title {
+  color: #C76F00;
+  font-weight: 700;
+  font-size: 22px;
+  width: 100%;
+  padding-left: 15px;
+}
+
+.ticket-info {
+  width: 100%;
+  padding: 20px 15px 40px;
+}
+
+
+.ticket-info p {
+  margin: 6px 0;
+  font-weight: 600;
+  color: black;
+}
+
+.ticket-info .label {
+  font-weight: 400;
+}
+
+.ticket-info .value {
+  font-weight: 700;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.ticket-note {
+  font-size: 14px;
+  font-weight: 200;
+  margin: 3px 0;
+  color: #000000;
+  padding-left: 15px;
+}
+
+
+/* эффект перфорации */
+
+.ticket-wrapper {
+  position: relative;
+  /* фон билета */
+  overflow: hidden;
+}
+
+.ticket-wrapper::before {
+  content: '';
+  display: flex;
+  width: 100%;
+  max-width: 990px;
+  height: 3px;
+  background-image: url("../images/pattern_before.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  background-color: #C76F00;
+  vertical-align: super;
+}
+
+.ticket-header::after {
+  content: '';
+  display: flex;
+  max-width: 990px;
+  height: 3px;
+  background-image: url("../images/pattern_after.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  background-color: #C76F00;
+  vertical-align: bottom;
+}
+
+.ticket-wrapper::after {
+  content: '';
+  display: flex;
+  max-width: 990px;
+  height: 3px;
+  background-image: url("../images/pattern_after.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  background-color: #C76F00;
+  vertical-align: bottom; 
+}
+
+/* --адаптивность-- */

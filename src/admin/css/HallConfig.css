@@ -1,0 +1,360 @@
+.conf-step__wrapper-block {
+    width: 100%;
+    max-width: 962px;
+    position: relative;
+}
+
+.line-header::before {
+    content: '';
+    width: 2px;
+    height: 95px;
+    background-color: #BC95D6;
+    position: absolute;
+    top: 0;
+    left: 61px;
+}
+
+.configure {
+    display: grid;
+    gap: 12px;
+}
+
+.hall-configuration__paragraph {
+    width: 100%;
+    max-width: 816px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000;
+}
+
+.halls__list-buttons {
+    height: 42px;
+    list-style-type: none;
+    display: flex;
+    margin-top: 0;
+    padding: 0;
+}
+
+.halls__list-buttons-item {
+    width: auto;
+    padding: 12.2px 20.25px 12.9px 21px;
+
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow:
+        0px 0px 3px 0px rgba(0, 0, 0, 0.12),
+        0px 3px 3px 0px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.chosen-hall {
+    padding: 15.41px 23.03px 13.9px 23.1px;
+    background-color: rgba(255, 255, 255, 1);
+    font-weight: 900;
+}
+
+.places {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.hall-conf-step__legend {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.hall-conf-step-label  {
+    width: 100px;
+    height: 52px;
+    display: grid;
+    gap: 1.6px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(132, 132, 132, 1);
+}
+
+.conf-step-input {
+    width: 100px;
+    padding: 8px 8.8px 9px 8.8px;
+    border: 1px solid #B7B7B7;
+    color: #757575;
+    background-color: #FFFFFF;
+}
+
+.multiplication-sign {
+    width: 10px;
+    height: 21px;
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #848484;
+}
+
+.frame {
+    display: grid;
+    gap: 11px;
+    margin-top: 36px;
+    margin-bottom: 9px;
+}
+
+.places-type {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.conf-step__chair {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+}
+
+.regular-chair {
+    border: 1px solid #393939;
+    background-color: #C4C4C4;
+}
+
+.vip-chair {
+    border: 1px solid #0A828A;
+    background-color: #B0D6D8;
+    background-image: url("conf-step__chair-vip.png");
+}
+
+.blocked-chair {
+    border: 1px solid #C4C4C4;
+}
+
+.regular {
+    border: 1px solid #393939;
+    background-color: #C4C4C4;
+    cursor: pointer;
+}
+
+.vip {
+    border: 1px solid #0A828A;
+    background-color: #B0D6D8;
+    background-image: url("conf-step__chair-vip.png");
+    cursor: pointer;
+}
+
+.blocked {
+    border: 1px solid #C4C4C4;
+    cursor: pointer;
+}
+
+.places-type__explanation {
+    display: flex;
+}
+
+.conf-step__explanation {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #848484;
+    padding: 5px 3px;
+}
+
+.conf-step__hint {
+    max-width: 826px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #848484;
+}
+
+.conf-step__hall {
+    width: 100%;
+    max-width: 826px;
+    padding-top: 26px;
+    padding-bottom: 36px;
+    border: 1px solid #000000;
+}
+
+.conf-step__hall::before {
+    content: 'экран';
+    display: flex;
+    width: max-content;
+    height: max-content;
+    margin: 0 338px 20px;
+    max-width: 803.6px;
+    max-height: 18.4px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 19px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.conf-step__hall-wrapper {
+    width: max-content;
+    height: max-content;
+    margin: auto;
+    display: grid;
+    gap: 10px;
+}
+
+.conf-step__row {
+    display: flex;
+    gap: 10px;
+}
+
+.fieldset {
+    width: 816px;
+    height: 57px;
+    gap: 15px;
+    padding-top: 17px;
+    display: flex;
+    justify-content: center;
+}
+
+.cancel__btn {
+    width: 121px;
+    height: 40px;
+    color: #63536C;
+    background-color: #FFFFFF;
+    border: solid #FFFFFF;
+}
+
+.save__btn {
+    width: 159px;
+    height: 40px;
+}
+
+
+@media (max-width: 390px) {
+    body {
+        background-position: center;
+        background-size: cover;
+    }
+
+    .header {
+        width: 100%;
+        height: auto;
+        padding: 20px 16px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .conf-step__wrapper {
+        width: 100%;
+        padding: 35px 31px;
+    }
+
+    section:not(:last-child)::before,
+    .first-header::before,
+    .line-header::before,
+    .last-header::before {
+        display: none;
+    }
+
+    .heading::before {
+        width: 14px;
+        height: 14px;
+        top: 21.5px;
+        left: 20px;
+    }
+
+    .frame-header {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .heading::after {
+        top: 24.5px;
+        right: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    /* КОНФИГУРАЦИЯ ЗАЛОВ */
+
+    .conf-step__paragraph {
+        max-width: 341px;
+    }
+
+    .conf-step__hall {
+        overflow-x: auto;
+        padding: 15px;
+    }
+
+    .conf-step__hall::before {
+        margin: 0 auto 15px;
+        letter-spacing: 8px;
+        font-size: 14px;
+    }
+
+    .conf-step__row {
+        gap: 6px;
+    }
+
+    .conf-step__chair {
+        width: 18px;
+        height: 18px;
+    }
+
+    .fieldset {
+        width: 100%;
+        gap: 10px;
+        height: auto;
+    }
+
+    .fieldset-button {
+        margin: auto;
+    }
+
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+    main {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .halls__list {
+        max-width: 597px;
+        margin: 10px 0;
+    }
+
+    .conf-step__paragraph {
+        max-width: 414px;
+    }
+
+    .conf-step__hall {
+        max-width: 623px;
+    }
+
+    .conf-step__hall::before {
+        margin: 0 auto 15px;
+        letter-spacing: 8px;
+        font-size: 14px;
+    }
+
+    .fieldset {
+        width: 100%;
+        gap: 10px;
+        height: auto;
+    }
+}

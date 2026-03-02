@@ -1,0 +1,138 @@
+.cinema-hall-page {
+  width: 100%;
+  max-width: 990px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.movie-info-row {
+  background-color: rgba(241, 235, 230, 0.95);
+  display: flex;
+}
+
+.cinema-hall-container {
+  width: 100%;
+  max-width: 990px;
+  margin: auto;
+  border-radius: 2px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Схема зала */
+.cinema-hall-info {
+  height: max-content;
+  padding: 15px 30px;
+  background-color: rgba(23, 29, 36, 1);
+}
+
+/* Поле кнопки */
+.button-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 30px;
+  background-color: rgba(241, 235, 230, 0.95);
+}
+
+@media (max-width: 390px) {
+  .block {
+    width: 100%;
+  }
+
+  .buying__info-hint {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .tap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100px;
+    padding-left: 16px;
+
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .hint {
+    width: 24px;
+    height: 32px;
+    background: url("hint.png") center / cover;
+    position: absolute;
+    left: 3px;
+  }
+
+  .button {
+    margin: 30px 79px;
+  }
+
+  .buying-scheme {
+    transition: transform 0.3s ease;
+  }
+
+  .buying-scheme.zoomed {
+    transform: scale(1.4);
+    transform-origin: top center;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+  .block {
+    width: 100%;
+  }
+
+  .buying__info {
+    justify-content: space-between;
+  }
+
+  .buying__info-hint {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+  }
+
+  .tap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100px;
+    padding-left: 16px;
+
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .hint {
+    width: 24px;
+    height: 32px;
+    background: url("hint.png") center / cover;
+    position: absolute;
+    left: 3px;
+  }
+
+  .button {
+    margin: 30px 268px;
+  }
+
+  .buying-scheme {
+    transition: transform 0.3s ease;
+  }
+
+  .buying-scheme.zoomed {
+    transform: scale(1.4);
+    transform-origin: top center;
+  }
+}

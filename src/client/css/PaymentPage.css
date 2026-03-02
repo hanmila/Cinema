@@ -1,0 +1,143 @@
+.payment-page {
+  width: 100%;
+  max-width: 990px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* БЛОК */
+
+.payment-container {
+  max-width: 990px;
+  height: 537px;
+  margin: auto;
+}
+
+.payment-header__block {
+  padding: 25px 15px;
+  background-color: rgba(241, 235, 230, 0.95);
+}
+
+.payment-header {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 25px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #C76F00;
+  margin: unset;
+}
+
+.payment-container::before {
+  content: '';
+  display: flex;
+  min-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_before.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  vertical-align: super;
+}
+
+.payment-container-wrapper::after {
+  content: '';
+  display: flex;
+  min-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_after.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  vertical-align: bottom;
+}
+
+.payment__info-wrapper {
+  padding: 20px 15px;
+  background-color: rgba(241, 235, 230, 0.95);
+}
+
+.payment__info {
+  color: black;
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.4px;
+}
+
+.payment__info-details {
+  margin-left: 5px;
+  font-weight: 700;
+}
+
+.payment__hint {
+  color: black;
+  margin-bottom: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.button-block {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  align-self: center;
+  max-width: max-content;
+  margin: 30px 0;
+  border: 1px;
+  border-radius: 3px;
+  background-color: #16A6AF;
+  box-shadow:
+    0px 0px 3px 0px rgba(0, 0, 0, 0.12),
+    0px 3px 3px 0px rgba(0, 0, 0, 0.24);
+  padding: 11px 56px;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.payment-info::before {
+  content: '';
+  display: flex;
+  min-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_before.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  vertical-align: super;
+}
+
+.payment-info::after {
+  content: '';
+  display: flex;
+  min-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_after.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  vertical-align: super;
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+  .payment-container {
+    width: 100%;
+
+  }
+}
+
+@media (max-width: 390px) {
+  .payment-container {
+    width: 100%;
+
+  }
+}

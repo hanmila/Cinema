@@ -1,0 +1,148 @@
+/* Карточка */
+.movie__block {
+  width: 100%;
+  max-width: 990px;
+  border-radius: 2px;
+  background-color: rgba(241, 235, 230, 0.95);
+  padding: 15px;
+}
+
+.movie__poster {
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  height: max-content;
+}
+
+.poster-img {
+  width: 125px;
+  height: 175px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Заголовок с вертикальным акцентом слева */
+.movie__title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 112%;
+  letter-spacing: -0.02em;
+  color: #000000;
+}
+
+.movie__title-accent {
+  display: inline-block;
+  width: 6px;
+  height: 16px;
+  background: #2f2f2f;
+  border-radius: 1px;
+}
+
+/* Описание и метка длительности/страна */
+.movie__desc {
+  margin: 0 0 6px 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 114%;
+  color: #000;
+
+}
+
+.movie__meta {
+  margin-left: 12px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 114%;
+  color: #000;
+}
+
+/* Блоки залов и время */
+.movie__hall {
+  margin-top: 0px;
+}
+
+.movie__hall-title {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 112%;
+  color: #000;
+}
+
+/* Сетка кнопок времени  */
+.movie__times {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+/* Кнопка времени */
+.movie__time {
+  appearance: none;
+  border: 1px solid #e1e1e1;
+  border-radius: 2px;
+  width: 53px;
+  height: 33px;
+  font-size: 15px;
+  line-height: 1;
+  color: #111;
+  padding: 7px 7px 8px 8px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+  background: #fff;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.movie__time:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+}
+
+.movie__time:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.movie__time:focus-visible {
+  outline: 2px solid #8c6fb1;
+  /* аккуратный фокус */
+  outline-offset: 2px;
+  border-color: #8c6fb1;
+}
+
+.movie__time--disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+  background-color: #ccc;
+  color: #666;
+}
+
+
+/* --адаптивность-- */
+@media (max-width: 575px) {
+  .movie__top {
+    align-items: flex-start;
+  }
+
+  .movie__poster {
+    width: 110px;
+    height: 154px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .movie {
+    border-radius: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}

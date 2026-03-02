@@ -1,0 +1,36 @@
+/*общие стили кнопки */
+.custom-button {
+  height: 40px;
+  border: none;
+  border-radius: 3px;
+  background-color: #16A6AF;
+  box-shadow:
+    0px 0px 3px 0px rgba(0, 0, 0, 0.12),
+    0px 3px 3px 0px rgba(0, 0, 0, 0.24);
+  padding: 12px;
+  cursor: pointer;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.custom-button:hover {
+  background-color: #25C4CE;
+}
+
+/* Размеры, разные кнопки на разных страницах */
+.custom-button--small {
+  padding: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 114%;
+}
+
+.custom-button--large {
+  padding: 14px 28px;
+  font-size: 1.125rem;
+}

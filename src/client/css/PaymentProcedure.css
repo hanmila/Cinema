@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* забыла для чего, боюсь убрать */
+}
+
+
+.payment-container {
+  width: 100%;
+  max-width: 990px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.payment-header {
+  color: #C76F00;
+  font-size: 22px;
+  font-weight: 700;
+  padding: 25px 15px;
+  background-color: rgba(241, 235, 230, 0.95);
+}
+
+.payment-header h3 {
+  margin: 0;
+}
+
+.payment-container p {
+  font-size: 16px;
+  font-weight: 400;
+  margin: 4px 0;
+  color: #000000;
+}
+
+.payment-container strong {
+  font-weight: 700;
+}
+
+.frame-info {
+  width: 100%;
+  max-width: 990px;
+  background-color: rgba(241, 235, 230, 0.95);
+}
+
+.ticket__info-wrapper {
+  padding: 20px 15px 30px;
+  max-width: 990px;
+}
+
+.payment-button {
+  background-color: #16A6AF;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  width: 100%;
+  max-width: 337px;
+  height: 40px;
+  margin: 25px auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.payment-info {
+  font-size: 14px !important;
+  font-weight: 200;
+  color: #000000;
+}
+
+/* эффект перфорации */
+
+.payment-wrapper {
+  position: relative;
+  /* фон билета */
+  overflow: hidden;
+}
+
+.payment-wrapper::before {
+  content: '';
+  display: flex;
+  width: 100%;
+  max-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_before.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  background-color: #C76F00;
+  vertical-align: super;
+}
+
+.payment-heading::after {
+  content: '';
+  display: flex;
+  max-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_after.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  background-color: #C76F00;
+  vertical-align: bottom;
+}
+
+.frame-info::before {
+    content: '';
+    display: flex;
+    max-width: 990px;
+    height: 3px;
+    background-image: url("../img/pattern_before.png");
+    background-size: 10px;
+    background-repeat: repeat-x;
+    background-color: #C76F00;
+    vertical-align: super;
+}
+
+.payment-wrapper::after {
+  content: '';
+  display: flex;
+  max-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_after.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  background-color: #C76F00;
+  vertical-align: bottom;
+}

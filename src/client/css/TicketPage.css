@@ -1,0 +1,111 @@
+.ticket-page {
+  width: 100%;
+  max-width: 990px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.ticket-container {
+  width: 100%;
+  background-color: transparent;
+  max-width: 990px;
+  height: 537px;
+  margin: 0 auto;
+  padding: 0 !important;
+  position: relative;
+  opacity: 0.95;
+}
+
+.ticket-header__block {
+  padding: 25px 15px;
+  background-color: rgba(241, 235, 230, 0.95);
+}
+
+.ticket-header {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 25px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #C76F00;
+  margin: unset;
+}
+
+.ticket-container-wrapper::before {
+  content: '';
+  display: flex;
+  min-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_before.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  vertical-align: super;
+}
+
+.ticket-container-wrapper::after {
+  content: '';
+  display: flex;
+  min-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_after.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  vertical-align: bottom;
+}
+
+.ticket__info-wrapper {
+  padding: 20px 15px;
+  background-color: rgba(241, 235, 230, 0.95);
+  color: #000;
+}
+
+.ticket__info {
+  margin-bottom: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.4px;
+}
+
+.ticket__info-details {
+  margin-left: 5px;
+  font-weight: 700;
+}
+
+.qr-code {
+  width: 200px;
+  height: 200px;
+  display: grid;
+  margin: 30px auto;
+}
+
+.ticket__hint {
+  margin-bottom: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.ticket-info::before {
+  content: '';
+  display: flex;
+  min-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_before.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  vertical-align: super;
+}
+
+.ticket-info::after {
+  content: '';
+  display: flex;
+  min-width: 990px;
+  height: 3px;
+  background-image: url("../img/pattern_after.png");
+  background-size: 10px;
+  background-repeat: repeat-x;
+  vertical-align: super;
+}

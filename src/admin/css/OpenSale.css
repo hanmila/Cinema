@@ -1,0 +1,38 @@
+.conf-step__wrapper-block {
+    width: 100%;
+    max-width: 962px;
+    background-color: rgba(234, 233, 235, 0.95);
+    position: relative;
+}
+
+.last-header::before {
+    content: '';
+    width: 2px;
+    height: 45px;
+    background-color: #BC95D6;
+    position: absolute;
+    top: 0;
+    left: 61px;
+}
+
+.open-sales__block {
+    width: 100%;
+    display: grid;
+    color: #000;
+    /*padding: 35px 42px 39px 104px;*/
+    gap: 29px;
+}
+
+.open-sales__paragraph {
+    width: 100%;
+}
+
+.open-sales__second-paragraph {
+    margin: auto;
+    text-align: center;
+}
+
+.open-sales-btn {
+    width: 270px;
+    margin: auto;
+}

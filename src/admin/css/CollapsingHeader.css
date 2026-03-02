@@ -1,0 +1,75 @@
+.collapsible-header {
+    width: 100%;
+    max-width: 962px;
+    height: 95px;
+    padding: 35px 42px 35px 40px;
+    display: flex;
+    align-items: center;
+    background-color: #63536C;
+}
+
+/*.collapsible-header::before {
+    content: '';
+    width: 2px;
+    height: 95px;
+    background-color: #BC95D6;
+    position: absolute;
+    left: 61px;
+}*/
+
+.collapsible-marker {
+    content: '';
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border: 4px solid #BC95D6;
+    border-radius: 22px;
+    background-color: #FFFFFF;
+}
+
+.collapsible-title {
+    width: 100%;
+    max-width: 816px;
+    padding-left: 20px;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.arrow {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+    background-size: 24px 16px;
+    cursor: pointer;
+}
+
+
+
+/* декоративный элемент в начале заголовка блока
+.folding-header:not(:last-child)::before {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: #BC95D6;
+    position: absolute;
+    left: 61px;
+}
+
+кнопка для сворачивания и разворачивания блока
+.folding-toogle-btn {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 16px;
+    background-image: url("../images/toggle-btn.png");
+    background-size: 24px 16px;
+    position: absolute;
+    top: 40px;
+    right: 42px;
+    cursor: pointer;
+}*/

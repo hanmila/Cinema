@@ -1,0 +1,255 @@
+.schedule-page-container {
+  width: 100%;
+  max-width: 990px;
+  margin: 0 auto;
+  display: grid;
+  gap: 30px;
+}
+
+/* Шапка сайта */
+.schedule-header {
+  width: 100%;
+  max-width: 990px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.movie-card-container {
+  width: 100%;
+  max-width: 990px;
+  border-radius: 2px;
+  color: #000000;
+  background-color: rgba(241, 235, 230, 0.95);
+  padding: 15px;
+}
+
+.movie__info {
+  display: flex;
+  width: 100%;
+  max-width: 960px;
+  height: max-content;
+}
+
+.movie__poster {
+  width: 125px;
+  height: 100%;
+  padding-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.picture-img {
+  width: 125px;
+  height: 175px;
+}
+
+.movie__poster::after {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 14px;
+  background-color: #393939;
+  position: absolute;
+  right: -7px;
+}
+
+.movie__description {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 104px;
+  padding-left: 15px;
+  display: grid;
+  gap: 10px;
+}
+
+.movie__heading {
+  width: 100%;
+  color: #000000;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 0;
+}
+
+.movie__synopsis {
+  width: 100%;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.movie__data {
+  display: flex;
+  gap: 2.38px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+p {
+  margin: 0;
+}
+
+.movie-seances__hall {
+  width: 100%;
+  max-width: 960px;
+  height: 63px;
+  display: grid;
+  gap: 7px;
+  position: relative;
+  top: -30px;
+}
+
+.movie-seances__hall:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+
+h3 {
+  height: 18px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  display: grid;
+  width: 53px;
+  height: 33px;
+  padding: 7px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  opacity: 0.9;
+  box-shadow:
+    0px 0px 2px 0px rgba(0, 0, 0, 0.12),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 17px;
+  letter-spacing: 0;
+  vertical-align: middle;
+  color: #000000;
+  text-decoration: none;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #dcdcdc;
+}
+
+@media (max-width: 390px) {
+  .schedule-header {
+    max-width: 362px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: 390px;
+    flex-grow: 1;
+  }
+
+  main {
+    max-width: 390px;
+  }
+
+  section {
+    min-width: 320px;
+    max-width: 390px;
+    min-height: auto;
+  }
+
+  .movie__poster::after {
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+    border: none;
+    background-color: #772720;
+  }
+
+  .movie__description {
+    max-width: 220px;
+    padding-bottom: 33px;
+  }
+
+  .movie-seances__hall {
+    max-width: 360px;
+  }
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+  .container {
+    justify-content: space-between;
+  }
+
+  nav {
+    max-width: 768px;
+  }
+
+  .link-first {
+    width: clamp(66px,
+        calc(66px + (96 - 66) * ((100vw - 391px) / 377)),
+        96px);
+  }
+
+  .link {
+    width: clamp(50px,
+        calc(50px + (96 - 50) * ((100vw - 391px) / 377)),
+        96px);
+  }
+
+  .link-large {
+    width: clamp(75px,
+        calc(75px + (187 - 75) * ((100vw - 391px) / 377)),
+        187px);
+  }
+
+  main {
+    max-width: 768px;
+  }
+
+  section {
+    height: 100%;
+    max-width: 768px;
+    /*max-height: 350px;*/
+  }
+
+  .movie__info {
+    display: flex;
+    width: 100%;
+    max-width: 768px;
+    height: max-content;
+  }
+
+  .movie__poster::after {
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+    border: none;
+    background-color: #772720;
+  }
+
+  .movie__description {
+    min-width: 220px;
+    padding-bottom: 33px;
+  }
+
+  .movie__synopsis {
+    min-width: 391px;
+    max-width: 598px;
+  }
+
+  .movie-seances__hall {
+    max-width: 738px;
+  }
+}

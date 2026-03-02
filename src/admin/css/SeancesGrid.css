@@ -1,0 +1,292 @@
+.conf-step__wrapper-block {
+    width: 100%;
+    max-width: 962px;
+    background-color: rgba(234, 233, 235, 0.95);
+    position: relative;
+}
+
+.conf-step__wrapper {
+    height: 100%;
+}
+
+.conf-step__paragraph-button {
+    padding-top: 17px;
+    margin-bottom: 12px;
+}
+
+.film-collection {
+    width: 791px;
+    display: grid;
+    grid-template-columns: 261px 240px 266px;
+    gap: 15px;
+    margin-bottom: 51px;
+}
+
+.film-block {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: flex-end;
+}
+
+.poster-picture {
+    width: 38px;
+    height: 50px;
+}
+
+.film__description {
+    display: grid;
+    width: 100%;
+    padding-left: 10px;
+}
+
+.film__data {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+    width: 100%;
+    height: max-content;
+    gap: 4px;
+    display: grid;
+}
+
+.film-name {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 1);
+}
+
+.film-duration {
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.film-delete-btn {
+    width: 24px;
+}
+
+.add-film__btn {
+    width: 194px;
+    margin-bottom: 12px;
+}
+
+.conf-step__seances {
+    width: 816px;
+    padding-left: 35px;
+    padding-right: 35px;
+    display: grid;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+h3 {
+    margin: 0;
+    height: 18px;
+    max-width: 756px;
+    max-height: 18.4px;
+
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.conf-step__seances-timeline {
+    width: 100%;
+    max-width: 720px;
+    height: 60px;
+    border: 1px solid #848484;
+    display: flex;
+    position: relative;
+}
+
+.conf-step__seances-movie {
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 10px;
+}
+
+.conf-step__seances-movie:nth-child(2) {
+    left: 360px;
+}
+
+.conf-step__seances-movie:nth-child(3) {
+    left: 430px;
+}
+
+.conf-step__seances-movie::before {
+    content: '';
+    width: 1px;
+    height: 5px;
+    display: grid;
+    background-color: #848484;
+    position: absolute;
+    top: 60px;
+    left: 1px;
+}
+
+.conf-step__seances-movie-title {
+    width: min-content;
+    height: 18px;
+
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 10px;
+    color: #000;
+}
+
+.conf-step__seances-movie-start {
+    width: 30px;
+    height: 14px;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    color: #848484;
+    position: absolute;
+    top: 66px;
+    left: 1px;
+}
+
+.conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(1) {
+    left: 585px;
+}
+
+.conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(2) {
+    left: 655px;
+}
+
+@media (max-width: 390px) {
+body {
+        background-position: center;
+        background-size: cover;
+    }
+
+    .header {
+        width: 100%;
+        height: auto;
+        padding: 20px 16px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .conf-step__wrapper {
+        width: 100%;
+        padding: 35px 31px;
+    }
+
+    section:not(:last-child)::before,
+    .first-header::before,
+    .line-header::before,
+    .last-header::before {
+        display: none;
+    }
+
+    .heading::before {
+        width: 14px;
+        height: 14px;
+        top: 21.5px;
+        left: 20px;
+    }
+
+    .frame-header {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .heading::after {
+        top: 24.5px;
+        right: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    /* СЕТКА СЕАНСОВ */
+
+    .conf-step__paragraph-button {
+        margin-bottom: 36px;
+    }
+
+    .film-collection {
+        width: 100%;
+        grid-template-columns: 1fr;
+        margin-bottom: 36px;
+    }
+
+    .film-block {
+        max-width: 260px;
+    }
+
+    .poster-picture {
+        height: 50px;
+    }
+
+    .conf-step__seances {
+        width: 100%;
+        padding: 0;
+        gap: 20px;
+        margin: 0;
+    }
+
+    .conf-step__seances-movie:nth-child(2) {
+        left: 79px;
+    }
+
+    .conf-step__seances-movie:nth-child(3) {
+        left: 149px;
+    }
+
+    .conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(1) {
+        left: 193px;
+    }
+
+    .conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(2) {
+        left: 263px;
+    }
+
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+
+    /* СЕТКА СЕАНСОВ */
+
+    .film-collection {
+        width: 100%;
+        grid-template-columns: 260px 260px;
+        margin-bottom: 30px;
+    }
+
+    .film-block {
+        max-width: 260px;
+    }
+
+    .poster-picture {
+        height: 50px;
+    }
+
+    .conf-step__seances {
+        max-width: 552px;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .conf-step__seances-movie:nth-child(2) {
+        left: 239px;
+    }
+
+    .conf-step__seances-movie:nth-child(3) {
+        left: 309px;
+    }
+
+    .conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(1) {
+        left: 417px;
+    }
+
+    .conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(2) {
+        left: 487px;
+    }
+}
