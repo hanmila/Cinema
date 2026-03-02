@@ -1,16 +1,30 @@
-# React + Vite
+## Описание проекта
+#### 1. Сущности
+* Кинозал – помещение, в котором демонстрируются фильмы. Режим работы определяется расписанием на день. Зал — прямоугольный, состоит из N*M различных зрительских мест.
+* Зрительское место – место в кинозале. Зрительские места могут быть VIP и обычные.
+* Фильм – информация о фильме заполняется администратором. Фильм связан с сеансом в кинозале.
+* Сеанс – это временной промежуток, в котором в кинозале будет показываться фильм. На сеанс могут быть забронированы билеты.
+* Билет – QR-код c уникальным кодом бронирования, в котором обязательно указаны: Дата, Время, Название фильма, Зал, Ряд, Место, Стоимость, Фраза "Билет действителен строго на свой сеанс".
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### 2. Роли пользователей системы
+* Гость — неавторизованный посетитель сайта.
+* Администратор — авторизованный пользователь.
 
-Currently, two official plugins are available:
+#### 4. Возможности гостя
+* Просмотр расписания
+* Просмотр информации о фильмах
+* Выбор места в кинозале
+* Бронирование билета
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### 6. Возможности администратора
+* Создание или редактирование залов.
+* Создание или редактирование списка фильмов.
+* Настройка цен.
+* Создание или редактирование расписания сеансов фильмов.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Технологии
+- React
+- Vite
+- JavaScript
+- React Router
+- QRCode
