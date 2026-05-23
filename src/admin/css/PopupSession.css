@@ -17,12 +17,12 @@
     z-index: 9999;
 }
 
-.popup__content-add-seance {
+.popup__content-add-session {
     width: 100%;
     max-width: 960px;
     height: max-content;
     background-color: rgba(241, 235, 230, 0.95);
-    margin: 120px auto;
+    /*margin: 120px auto;*/
     padding-bottom: 35px;
     display: grid;
     gap: 34px;
@@ -34,7 +34,7 @@
     background-color: #63536C;
 }
 
-h2 {
+.popup__header {
     font-weight: 700;
     font-size: 22px;
     line-height: 25px;
@@ -97,7 +97,17 @@ input.form__input:nth-child(3) {
     height: 80px;
 }
 
+.select-icon {
+    position: relative;
+    width: 100%;
+}
+
 .popup__form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    width: 100%;
     height: 36px;
     border: 1px solid #B7B7B7;
     padding: 8px 12px;
@@ -105,18 +115,13 @@ input.form__input:nth-child(3) {
     background-color: #FFFFFF;
 }
 
-.hall-name {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    background-image: url('Union.svg');
-    background-repeat: no-repeat;
-    background-position: right 10px top 50%;
-    background-size: 12px auto;
+.input-icon {
+    position: relative;
+    width: 100%;
 }
 
 .start-time {
+    width: 100%;
     max-height: 36px;
     padding: 8px 5px 8px 12px;
 
@@ -125,6 +130,12 @@ input.form__input:nth-child(3) {
     line-height: 19.2px;
 
     border: 1px solid #B7B7B7;
+}
+
+.time-icon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
 }
 
 .conf-step__buttons {

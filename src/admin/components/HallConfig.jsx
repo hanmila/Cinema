@@ -18,31 +18,44 @@ function convertLayoutToConfig(layout) {
   return layout.map(row =>
     row.map(seat => {
       if (seat === "vip") return "vip";
-      if (seat === "disabled") return "disabled";
+      if (seat === "blocked") return "disabled";
       return "standart";
     })
   );
 }
 
-function HallConfig({ halls, activeHallId, setActiveHallId }) {
+function convertConfigToLayout(config) {
+  if (!config || !config.length) {
+    return generateLayout(10, 10);
+  }
+
+  return config.map(row =>
+    row.map(seat => {
+      if (seat === "vip") return "vip";
+      if (seat === "disabled") return "blocked";
+      return "regular";
+    })
+  );
+}
+
+function HallConfig({ halls, setHalls, activeHallId, setActiveHallId }) {
   const [isOpen, setIsOpen] = useState(true); // по умолчанию открыто
-  const [hallConfig, sethallConfig] = useState({});
+  const [hallConfig, setHallConfig] = useState({});
 
   // Создаём конфиг для всех залов при монтировании / добавлении нового зала
+  /* eslint-disable react-hooks/set-state-in-effect */
   useEffect(() => {
-    sethallConfig((prev) => {
-      const newConfigs = { ...prev };
-      halls.forEach((hall) => {
-        if (!newConfigs[hall.id]) {
-          newConfigs[hall.id] = {
-            rows: 10,
-            seats: 10,
-            layout: generateLayout(10, 10),
-          };
-        }
-      });
-      return newConfigs;
+    const configs = {};
+
+    halls.forEach((hall) => {
+      configs[hall.id] = {
+        rows: hall.hall_rows || 10,
+        seats: hall.hall_places || 10,
+        layout: convertConfigToLayout(hall.hall_config),
+      };
     });
+
+    setHallConfig(configs);
   }, [halls]);
 
   if (!activeHallId || !hallConfig[activeHallId]) return null;
@@ -52,20 +65,29 @@ function HallConfig({ halls, activeHallId, setActiveHallId }) {
   // Изменение количества рядов или мест
   const handleNumberChange = (e, type) => {
     let value = e.target.value.replace(/\D/g, "").slice(0, 2);
+
     const number = Number(value);
+
     if (!number || number < 1) return;
 
-    sethallConfig((prev) => {
+    setHallConfig((prev) => {
       const hall = prev[activeHallId];
+
       const newRows = type === "rows" ? number : hall.rows;
       const newSeats = type === "seats" ? number : hall.seats;
+
+      const newLayout = Array.from({ length: newRows }, (_, rowIndex) =>
+        Array.from({ length: newSeats }, (_, seatIndex) => {
+          return hall.layout[rowIndex]?.[seatIndex] || "regular";
+        })
+      );
 
       return {
         ...prev,
         [activeHallId]: {
           rows: newRows,
           seats: newSeats,
-          layout: generateLayout(newRows, newSeats),
+          layout: newLayout,
         },
       };
     });
@@ -73,7 +95,7 @@ function HallConfig({ halls, activeHallId, setActiveHallId }) {
 
   // Переключение типа кресла по клику
   const handleSeatClick = (rowIndex, seatIndex) => {
-    sethallConfig((prev) => {
+    setHallConfig((prev) => {
       const hall = prev[activeHallId];
       const newLayout = hall.layout.map((row) => [...row]);
 
@@ -94,7 +116,6 @@ function HallConfig({ halls, activeHallId, setActiveHallId }) {
   };
 
   // Сохранение данных зала
-
   const handleSave = async () => {
     const current = hallConfig[activeHallId];
 
@@ -104,10 +125,24 @@ function HallConfig({ halls, activeHallId, setActiveHallId }) {
       placeCount: Number(current.seats),
       config: convertLayoutToConfig(current.layout),
     };
-    
+
     try {
       const response = await api.saveHallConfig(payload);
-      console.log("Ответ сервера:", response);
+
+      // обновляем halls
+      setHalls((prev) =>
+        prev.map((hall) =>
+          hall.id === activeHallId
+            ? {
+              ...hall,
+              hall_rows: response.hall_rows,
+              hall_places: response.hall_places,
+              hall_config: response.hall_config,
+            }
+            : hall
+        )
+      );
+
       alert("Сохранено");
     } catch (error) {
       console.error("Ошибка сервера:", error);
@@ -118,21 +153,34 @@ function HallConfig({ halls, activeHallId, setActiveHallId }) {
   // Отмена изменений
   const handleCancel = () => {
     if (window.confirm("Вы уверены, что хотите отменить?")) {
-      window.location.reload();
+      const hall = halls.find(h => h.id === activeHallId);
+
+      if (!hall) return;
+
+      setHallConfig((prev) => ({
+        ...prev,
+        [activeHallId]: {
+          rows: hall.hall_rows || 10,
+          seats: hall.hall_places || 10,
+          layout: convertConfigToLayout(hall.hall_config),
+        },
+      }));
     }
   };
 
   return (
     <section className="conf-step__wrapper-block hall-configuration">
 
-      <CollapsingHeader
-        title="Конфигурация залов"
-        isOpen={isOpen}
-        toggle={() => setIsOpen(!isOpen)}
-      />
+      <div className="section-header__middle">
+        <CollapsingHeader
+          title="Конфигурация залов"
+          isOpen={isOpen}
+          toggle={() => setIsOpen(!isOpen)}
+        />
+      </div>
 
       {isOpen && (
-        <div className="conf-step__wrapper">
+        <div className="conf-step__wrapper section-style__middle">
           <div className="configure">
             <span className="hall-configuration__paragraph">Выберите зал для конфигурации</span>
             <ul className="halls__list-buttons">

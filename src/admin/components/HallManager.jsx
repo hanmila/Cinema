@@ -6,7 +6,7 @@ import '../css/HallManager.css';
 
 const api = new API();
 
-function HallManager({ halls, setHalls }) {
+function HallManager({ halls, setHalls, normalizeHalls, activeHallId, setActiveHallId }) {
   const [isOpen, setIsOpen] = useState(true);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -14,14 +14,31 @@ function HallManager({ halls, setHalls }) {
   const openPopupHall = () => setIsPopupOpen(true);
   const closePopupHall = () => setIsPopupOpen(false);
 
-  {/* Функция удаления */ }
+  {/* Функция удаления зала */ }
   const handleDeleteHall = async (id) => {
     if (!window.confirm("Вы уверены, что хотите удалить зал?")) return;
 
     try {
-      const response = await api.deleteHall(id);
-      // response.halls — обновлённый список залов с сервера
-      setHalls(response.halls);
+      await api.deleteHall(id);
+
+      const data = await api.getAllData();
+
+      const normalized = normalizeHalls(
+        data.halls,
+        data.seances
+      );
+
+      setHalls(normalized);
+
+      // если удалили активный зал
+      if (activeHallId === id) {
+        if (normalized.length > 0) {
+          setActiveHallId(normalized[0].id);
+        } else {
+          setActiveHallId(null);
+        }
+      }
+
       alert("Зал успешно удалён");
     } catch (error) {
       console.error("Ошибка при удалении зала:", error);
@@ -32,14 +49,16 @@ function HallManager({ halls, setHalls }) {
   return (
     <section className="conf-step__wrapper-block hall-management">
 
-      <CollapsingHeader
-        title="Управление залами"
-        isOpen={isOpen}
-        toggle={() => setIsOpen(!isOpen)}
-      />
+      <div className="section-header__start">
+        <CollapsingHeader
+          title="Управление залами"
+          isOpen={isOpen}
+          toggle={() => setIsOpen(!isOpen)}
+        />
+      </div>
 
       {isOpen && (
-        <div className="conf-step__wrapper hall-management">
+        <div className="conf-step__wrapper section-style__start">
           <span className="hall-management-label">Доступные залы:</span>
 
           <ul className="halls__list">
@@ -71,6 +90,7 @@ function HallManager({ halls, setHalls }) {
         onClose={closePopupHall}
         halls={halls}
         setHalls={setHalls}
+        normalizeHalls={normalizeHalls}
       />
     </section>
   );

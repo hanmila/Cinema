@@ -1,13 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
 .conf-step__wrapper-block {
     width: 100%;
     max-width: 962px;
     position: relative;
+    box-sizing: border-box;
 }
 
-.line-header::before {
+.section-header__middle::before {
     content: '';
     width: 2px;
     height: 95px;
+    background-color: #BC95D6;
+    position: absolute;
+    left: 61px;
+}
+
+.section-style__middle::before {
+    content: '';
+    width: 2px;
+    height: 100%;
     background-color: #BC95D6;
     position: absolute;
     top: 0;
@@ -29,16 +43,18 @@
 }
 
 .halls__list-buttons {
-    height: 42px;
     list-style-type: none;
     display: flex;
+    align-items: center;
     margin-top: 0;
     padding: 0;
+    gap: 10px 0;
 }
 
 .halls__list-buttons-item {
-    width: auto;
-    padding: 12.2px 20.25px 12.9px 21px;
+    width: 81px;
+    height: 42px;
+    padding: 12px 19px;
 
     border-radius: 3px;
     background-color: rgba(255, 255, 255, 0.45);
@@ -54,9 +70,20 @@
     color: #000000;
 }
 
+.halls__list-buttons-item:hover {
+    box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
 .chosen-hall {
-    padding: 15.41px 23.03px 13.9px 23.1px;
+    width: 90px;
+    height: 46px;
     background-color: rgba(255, 255, 255, 1);
+    box-shadow:
+        0px 0px 2px 0px rgba(0, 0, 0, 0.12),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.24),
+        0px 6px 8px 0px rgba(0, 0, 0, 0.24);
+    ;
+
     font-weight: 900;
 }
 
@@ -72,7 +99,7 @@
     gap: 14px;
 }
 
-.hall-conf-step-label  {
+.hall-conf-step-label {
     width: 100px;
     height: 52px;
     display: grid;
@@ -106,7 +133,6 @@
 .frame {
     display: grid;
     gap: 11px;
-    margin-top: 36px;
     margin-bottom: 9px;
 }
 
@@ -178,10 +204,12 @@
 
 .conf-step__hall {
     width: 100%;
-    max-width: 826px;
+    /*max-width: 826px;*/
+    overflow-x: auto;
     padding-top: 26px;
     padding-bottom: 36px;
     border: 1px solid #000000;
+    box-sizing: border-box;
 }
 
 .conf-step__hall::before {
@@ -189,7 +217,7 @@
     display: flex;
     width: max-content;
     height: max-content;
-    margin: 0 338px 20px;
+    margin: 0 auto 20px;
     max-width: 803.6px;
     max-height: 18.4px;
 
@@ -203,9 +231,10 @@
 }
 
 .conf-step__hall-wrapper {
-    width: max-content;
-    height: max-content;
-    margin: auto;
+    width: fit-content;
+    max-width: 100%;
+    /*height: max-content;*/
+    margin: 0 auto;
     display: grid;
     gap: 10px;
 }
@@ -216,7 +245,8 @@
 }
 
 .fieldset {
-    width: 816px;
+    width: 100%;
+    max-width: 816px;
     height: 57px;
     gap: 15px;
     padding-top: 17px;
@@ -257,36 +287,12 @@
     .conf-step__wrapper {
         width: 100%;
         padding: 35px 31px;
+        box-sizing: border-box;
     }
 
-    section:not(:last-child)::before,
-    .first-header::before,
-    .line-header::before,
-    .last-header::before {
+    .section-header__middle::before,
+    .section-style__middle::before {
         display: none;
-    }
-
-    .heading::before {
-        width: 14px;
-        height: 14px;
-        top: 21.5px;
-        left: 20px;
-    }
-
-    .frame-header {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-    }
-
-    .heading::after {
-        top: 24.5px;
-        right: 20px;
-    }
-
-    h2 {
-        font-size: 18px;
-        text-align: center;
     }
 
     /* КОНФИГУРАЦИЯ ЗАЛОВ */

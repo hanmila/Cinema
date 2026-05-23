@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import ShedulePage from "./pages/ShedulePage";
+import SchedulePage from "./pages/SchedulePage";
 import HallPage from "./pages/HallPage";
 import PaymentPage from "./pages/PaymentPage";
 import TicketPage from "./pages/TicketPage";
@@ -10,7 +10,7 @@ const ClientRoutes = () => {
     <Routes>
 
       {/* Главная страница — расписание фильмов */}
-      <Route path="/" element={<ShedulePage />} />
+      <Route path="/" element={<SchedulePage />} />
 
       {/* Страница выбора мест для конкретного сеанса (id сеанса передаётся в URL) */}
       <Route path="/booking/:seanceId" element={<HallPage />} />

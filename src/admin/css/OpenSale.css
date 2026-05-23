@@ -5,13 +5,12 @@
     position: relative;
 }
 
-.last-header::before {
+.section-header__end::before {
     content: '';
     width: 2px;
-    height: 45px;
+    height: 48px;
     background-color: #BC95D6;
     position: absolute;
-    top: 0;
     left: 61px;
 }
 
@@ -19,7 +18,11 @@
     width: 100%;
     display: grid;
     color: #000;
-    /*padding: 35px 42px 39px 104px;*/
+    /*padding: 35px 42px 39px 104px;
+    gap: 29px;*/
+}
+
+.open-sales__content {
     gap: 29px;
 }
 
@@ -35,4 +38,10 @@
 .open-sales-btn {
     width: 270px;
     margin: auto;
+}
+
+@media (max-width: 390px) {
+    .section-header__end::before {
+        display: none;
+    }
 }

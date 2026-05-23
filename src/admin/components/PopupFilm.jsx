@@ -5,14 +5,14 @@ import '../css/PopupFilm.css';
 
 const api = new API();
 
-function PopupFilm({ isOpen, onClose, films, setFilms }) {
+function PopupFilm({ isOpen, onClose, setFilms, setFilmColors }) {
   const [title, setTitle] = useState("");
   const [duration, setDuration] = useState("");
   const [description, setDescription] = useState("");
   const [country, setCountry] = useState("");
   const [posterFile, setPosterFile] = useState(null);
   const [preview, setPreview] = useState(null);
-  const [bgColor, setBgColor] = useState("#ffffff");
+  const [bgColor, setBgColor] = useState("#ffffff00");
 
   if (!isOpen) return null;
 
@@ -43,7 +43,8 @@ function PopupFilm({ isOpen, onClose, films, setFilms }) {
   // Добавление фильма
   // -------------------
 
-  const normalizeFilms = (filmsFromServer) => {
+  // Из-за этого информация о всех фильмах слетает после добавления нового фильма; удалить потом
+  {/* const normalizeFilms = (filmsFromServer) => {
     return filmsFromServer.map(film => ({
       id: film.id,
       title: film.film_name,
@@ -53,8 +54,8 @@ function PopupFilm({ isOpen, onClose, films, setFilms }) {
       poster: film.film_poster,
       bgColor: film.film_color,
     }));
-  };
-  
+  }; */}
+
 
   const handleSubmit = async () => {
     if (!title || !duration || !description || !country || !posterFile) {
@@ -78,8 +79,19 @@ function PopupFilm({ isOpen, onClose, films, setFilms }) {
       });
       console.log(response.films);
 
-      const formatted = normalizeFilms(response.films);
-      setFilms(formatted);
+      // Из-за этого информация о всех фильмах слетает после добавления нового фильма; удалить потом
+      {/* const formatted = normalizeFilms(response.films);
+      setFilms(formatted); */}
+
+      // вместо этого
+      setFilms(response.films);
+
+      const newFilm = response.films[response.films.length - 1];
+
+      setFilmColors((prev) => ({
+        ...prev,
+        [newFilm.id]: bgColor,
+      }));
 
       // сервер возвращает обновлённый список фильмов
 
@@ -105,6 +117,7 @@ function PopupFilm({ isOpen, onClose, films, setFilms }) {
     setCountry("");
     setPosterFile(null);
     setPreview(null);
+    setBgColor("#ffffff00");
   };
 
   return (

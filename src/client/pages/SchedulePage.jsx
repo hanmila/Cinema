@@ -2,10 +2,11 @@ import { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import ClientLayout from "../components/ClientLayout";
 import ClientHeader from "../components/ClientHeader";
+import MovieCard from "../components/MovieCard";
 import Button from "../components/Button";
 import Nav from "../components/Nav";
 import API from "../../api/api";
-import "../css/ShedulePage.css";
+import "../css/SchedulePage.css";
 
 export default function SchedulePage() {
   const navigate = useNavigate();
@@ -106,9 +107,6 @@ export default function SchedulePage() {
   // ======================
   // Текущая дата и время
   // ======================
-  const now = new Date();
-  const todayStr = now.toISOString().split("T")[0];
-
   const todayISO = new Date().toISOString().slice(0, 10);
 
   // Приводим selectedDate к ISO формату
@@ -123,77 +121,20 @@ export default function SchedulePage() {
   return (
     <ClientLayout>
       <div className="schedule-page">
-        <div className="schedule-header">
+        <header className="schedule-header">
           <ClientHeader />
           <Button onClick={() => navigate("/admin/login")}>Войти</Button>
-        </div>
+        </header>
 
         <Nav onDayChange={setSelectedDate} />
 
-        <main className="schedule-page-container">
+        <main className="schedule-container">
           {movies.map(movie => (
-            <section key={movie.id} className="movie-card-container">
-              <div className="movie__info">
-                <div className="movie__poster">
-                  <img
-                    className="picture-img"
-                    src={movie.imageSrc}
-                    alt={`Постер фильма ${movie.title}`}
-                  />
-                </div>
-                <div className="movie__description">
-                  <h2 className="movie__heading">{movie.title}</h2>
-                  <div className="movie__synopsis">{movie.description}</div>
-                  <div className="movie__data">
-                    <p>{movie.durationCountry.split("·")[0]}</p>
-                    <p>{movie.durationCountry.split("·")[1] || ""}</p>
-                  </div>
-                </div>
-              </div>
-
-              {movie.halls.map(hall => (
-                <div className="movie-seances__hall" key={hall.id}>
-                  <h3>{hall.name}</h3>
-                  <ul>
-                    {hall.seances.map(seance => {
-                      let isPast = false;
-
-                      if (isTodaySelected) {
-                        const now = new Date();
-                        const [h, m] = seance.time.split(":").map(Number);
-
-                        const seanceDateTime = new Date();
-                        seanceDateTime.setHours(h, m, 0, 0);
-
-                        isPast = seanceDateTime.getTime() < now.getTime();
-                      }
-
-                      return (
-                        <li key={seance.id}>
-                          <a
-                            href="#0"
-                            className="category-item"
-                            style={{
-                              pointerEvents: isPast ? "none" : "auto",
-                              opacity: isPast ? 0.4 : 1,
-                              cursor: isPast ? "not-allowed" : "pointer",
-                            }}
-                            onClick={e => {
-                              e.preventDefault();
-                              if (!isPast) {
-                                goToBooking(seance.id, seance.time);
-                              }
-                            }}
-                          >
-                            {seance.time}
-                          </a>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              ))}
-            </section>
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              isTodaySelected={isTodaySelected}
+              goToBooking={goToBooking} />
           ))}
         </main>
       </div>

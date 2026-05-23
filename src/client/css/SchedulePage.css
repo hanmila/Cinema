@@ -1,0 +1,89 @@
+.schedule-page {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* Шапка сайта */
+.schedule-header {
+  width: 100%;
+  max-width: 990px;
+  display: flex;
+  align-items: center;
+  /*justify-content: space-between;*/
+  margin: auto;
+  padding-right: 14px;
+}
+
+.schedule-container {
+  width: 100%;
+  max-width: 990px;
+  margin: 0 auto;
+  display: grid;
+  gap: 30px;
+}
+
+/*p {
+  margin: 0;
+}*/
+
+
+@media (max-width: 390px) {
+  .schedule-header {
+    max-width: 362px;
+    margin: 0 14px;
+  }
+
+  nav {
+    width: 100%;
+    max-width: 390px;
+    flex-grow: 1;
+  }
+
+  .schedule-container {
+    max-width: 390px;
+  }
+
+  /*section {
+    min-width: 320px;
+    max-width: 390px;
+    min-height: auto;
+  }*/
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+  .container {
+    justify-content: space-between;
+  }
+
+  nav {
+    max-width: 768px;
+  }
+
+  .link-first {
+    width: clamp(66px,
+        calc(66px + (96 - 66) * ((100vw - 391px) / 377)),
+        96px);
+  }
+
+  .link {
+    width: clamp(50px,
+        calc(50px + (96 - 50) * ((100vw - 391px) / 377)),
+        96px);
+  }
+
+  .link-large {
+    width: clamp(75px,
+        calc(75px + (187 - 75) * ((100vw - 391px) / 377)),
+        187px);
+  }
+
+  .schedule-container {
+    max-width: 768px;
+  }
+
+  /*section {
+    height: 100%;
+    max-width: 768px;
+    /*max-height: 350px;/
+  }*/
+}

@@ -5,48 +5,54 @@ import '../css/PopupHall.css';
 
 const api = new API();
 
-function PopupHall({ isOpen, onClose, halls, setHalls }) {
+function PopupHall({ isOpen, onClose, halls, setHalls, normalizeHalls }) {
   const [hallName, setHallName] = useState('');
 
   if (!isOpen) return null;
 
-  const getNextHallId = () => {
+  {/*const getNextHallId = () => {
     if (halls.length === 0) return 1;
     return Math.max(...halls.map(h => h.id)) + 1;
-  };
+  };*/}
 
   const handleAddHall = async () => {
-  const name = hallName.trim();
+    const name = hallName.trim();
 
-  // Проверка 1 — пустое ли поле
-  if (!name) {
-    alert("Введите название зала!");
-    return;
-  }
+    // Проверка 1 — пустое ли поле
+    if (!name) {
+      alert("Введите название зала!");
+      return;
+    }
 
-  // Проверка 2 — зал уже существует (учитываем hall_name с сервера)
-  if (halls.some(h => h.hall_name?.toLowerCase() === name.toLowerCase())) {
-    alert("Зал с таким названием уже существует!");
-    return;
-  }
+    // Проверка 2 — зал уже существует (учитываем hall_name с сервера)
+    if (halls.some(h => h.hall_name?.toLowerCase() === name.toLowerCase())) {
+      alert("Зал с таким названием уже существует!");
+      return;
+    }
 
-  try {
-    // Создаём зал на сервере
-    await api.createHall(name);
+    try {
+      // Создаём зал на сервере
+      await api.createHall(name);
 
-    // Обновляем список залов с сервера
-    const data = await api.getAllData();
-    setHalls(data.halls || []);
+      // Обновляем список залов с сервера
+      const data = await api.getAllData();
 
-    // Очистка и закрытие
-    setHallName("");
-    onClose();
+      const normalized = normalizeHalls(
+        data.halls,
+        data.seances
+      );
 
-  } catch (error) {
-    console.error("Ошибка добавления зала:", error);
-    alert("Ошибка при добавлении зала!");
-  }
-};
+      setHalls(normalized);
+
+      // Очистка и закрытие
+      setHallName("");
+      onClose();
+
+    } catch (error) {
+      console.error("Ошибка добавления зала:", error);
+      alert("Ошибка при добавлении зала!");
+    }
+  };
 
   return (
     <div className="popup__overlay">

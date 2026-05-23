@@ -7,11 +7,12 @@ const api = new API();
 
 function PriceConfig({ halls, activeHallId, setActiveHallId }) {
   const [isOpen, setIsOpen] = useState(true);
-  const [priceConfig, setpriceConfig] = useState({});
+  const [priceConfig, setPriceConfig] = useState({});
 
   // Загружаем конфиг цен при монтировании и при добавлении новых залов
   useEffect(() => {
-    setpriceConfig((prev) => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPriceConfig((prev) => {
       const newConfigs = { ...prev };
       halls.forEach((hall) => {
         if (!newConfigs[hall.id]) {
@@ -32,7 +33,7 @@ function PriceConfig({ halls, activeHallId, setActiveHallId }) {
   // Изменение цены
   const handlePriceChange = (e, type) => {
     const value = e.target.value.replace(/\D/g, ""); // только цифры
-    setpriceConfig((prev) => ({
+    setPriceConfig((prev) => ({
       ...prev,
       [activeHallId]: {
         ...prev[activeHallId],
@@ -67,14 +68,17 @@ function PriceConfig({ halls, activeHallId, setActiveHallId }) {
 
   return (
     <section className="conf-step__wrapper-block price-configuration">
-      <CollapsingHeader
-        title="Конфигурация цен"
-        isOpen={isOpen}
-        toggle={() => setIsOpen(!isOpen)}
-      />
+
+      <div className="section-header__middle">
+        <CollapsingHeader
+          title="Конфигурация цен"
+          isOpen={isOpen}
+          toggle={() => setIsOpen(!isOpen)}
+        />
+      </div>
 
       {isOpen && (
-        <div className="conf-step__wrapper">
+        <div className="conf-step__wrapper section-style__middle">
           {/* Выбор зала */}
           <div className="configure">
             <span className="price-configuration__paragraph">
@@ -84,9 +88,8 @@ function PriceConfig({ halls, activeHallId, setActiveHallId }) {
               {halls.map((hall) => (
                 <li
                   key={hall.id}
-                  className={`halls__list-buttons-item ${
-                    hall.id === activeHallId ? "chosen-hall" : ""
-                  }`}
+                  className={`halls__list-buttons-item ${hall.id === activeHallId ? "chosen-hall" : ""
+                    }`}
                   onClick={() => setActiveHallId(hall.id)}
                 >
                   {hall.hall_name}

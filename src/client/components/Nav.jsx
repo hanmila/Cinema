@@ -59,15 +59,12 @@ const Navigation = ({ onDayChange }) => {
           <div
             key={index}
             className={`link-block ${isSelected ? "link-large" : ""}`}
+            onClick={() => handleSelect(index)} // для возможности клика на всю вкладку, а не только на ссылку
           >
             <a
               href="#0"
               className={`${index === 0 ? "link-first" : "link"
                 } ${isWeekend ? "weekend" : ""}`}
-              onClick={(e) => {
-                e.preventDefault();
-                handleSelect(index);
-              }}
             >
               <span
                 className={`page-nav__day-week ${isRealToday ? "today" : ""
@@ -88,18 +85,18 @@ const Navigation = ({ onDayChange }) => {
         );
       })}
 
-      <div className="link-block">
-        <a
-          href="#0"
-          className="link next"
-          aria-label="Следующая неделя"
-          onClick={(e) => {
-            e.preventDefault();
+      <div className="link-block"
+        type="button"
+        onClick={handleNextWeek}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
             handleNextWeek();
-          }}
-        >
+          }
+        }}
+      >
+        <span className="link next" aria-label="Следующая неделя">
           &gt;
-        </a>
+        </span>
       </div>
     </nav>
   );

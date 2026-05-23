@@ -1,8 +1,10 @@
 .conf-step__wrapper-block {
     width: 100%;
-    max-width: 962px;
+    /*max-width: 962px;*/
     background-color: rgba(234, 233, 235, 0.95);
     position: relative;
+    overflow-x: auto;
+    box-sizing: border-box;
 }
 
 .conf-step__wrapper {
@@ -15,9 +17,9 @@
 }
 
 .film-collection {
-    width: 791px;
+    width: 100%;
     display: grid;
-    grid-template-columns: 261px 240px 266px;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
     gap: 15px;
     margin-bottom: 51px;
 }
@@ -25,7 +27,6 @@
 .film-block {
     border: 1px solid rgba(0, 0, 0, 0.3);
     display: flex;
-    align-items: flex-end;
 }
 
 .poster-picture {
@@ -37,30 +38,27 @@
     display: grid;
     width: 100%;
     padding-left: 10px;
-}
-
-.film__data {
     font-size: 14px;
-    line-height: 16px;
-    letter-spacing: 0;
-    width: 100%;
-    height: max-content;
-    gap: 4px;
-    display: grid;
+    align-content: space-between;
 }
 
 .film-name {
     font-weight: 500;
+    line-height: 12px;
     color: rgba(0, 0, 0, 1);
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .film-duration {
     font-weight: 400;
+    font-size: 14px;
     color: rgba(0, 0, 0, 0.7);
 }
 
 .film-delete-btn {
     width: 24px;
+    align-self: end;
 }
 
 .add-film__btn {
@@ -68,13 +66,16 @@
     margin-bottom: 12px;
 }
 
-.conf-step__seances {
-    width: 816px;
+/* Залы */
+.conf-step__sessions {
+    width: 100%;
+    max-width: 816px;
     padding-left: 35px;
     padding-right: 35px;
     display: grid;
     gap: 35px;
     margin-bottom: 35px;
+    box-sizing: border-box;
 }
 
 h3 {
@@ -89,7 +90,7 @@ h3 {
     color: #000;
 }
 
-.conf-step__seances-timeline {
+.conf-step__sessions-timeline {
     width: 100%;
     max-width: 720px;
     height: 60px;
@@ -98,21 +99,13 @@ h3 {
     position: relative;
 }
 
-.conf-step__seances-movie {
-    height: 40px;
+.conf-step__sessions-movie {
+    height: 50px;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    padding: 10px;
+    padding: 2px;
 }
 
-.conf-step__seances-movie:nth-child(2) {
-    left: 360px;
-}
-
-.conf-step__seances-movie:nth-child(3) {
-    left: 430px;
-}
-
-.conf-step__seances-movie::before {
+.conf-step__sessions-movie::before {
     content: '';
     width: 1px;
     height: 5px;
@@ -123,9 +116,8 @@ h3 {
     left: 1px;
 }
 
-.conf-step__seances-movie-title {
+.conf-step__sessions-movie-title {
     width: min-content;
-    height: 18px;
 
     font-weight: 400;
     font-size: 10px;
@@ -133,7 +125,7 @@ h3 {
     color: #000;
 }
 
-.conf-step__seances-movie-start {
+.conf-step__sessions-movie-start {
     width: 30px;
     height: 14px;
 
@@ -146,16 +138,19 @@ h3 {
     left: 1px;
 }
 
-.conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(1) {
-    left: 585px;
-}
+.trash-bin {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
 
-.conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(2) {
-    left: 655px;
+    width: 64px;
+    height: 64px;
+    z-index: 1000;
 }
 
 @media (max-width: 390px) {
-body {
+    body {
         background-position: center;
         background-size: cover;
     }
@@ -173,36 +168,6 @@ body {
     .conf-step__wrapper {
         width: 100%;
         padding: 35px 31px;
-    }
-
-    section:not(:last-child)::before,
-    .first-header::before,
-    .line-header::before,
-    .last-header::before {
-        display: none;
-    }
-
-    .heading::before {
-        width: 14px;
-        height: 14px;
-        top: 21.5px;
-        left: 20px;
-    }
-
-    .frame-header {
-        display: flex;
-        justify-content: center;
-        padding: 20px;
-    }
-
-    .heading::after {
-        top: 24.5px;
-        right: 20px;
-    }
-
-    h2 {
-        font-size: 18px;
-        text-align: center;
     }
 
     /* СЕТКА СЕАНСОВ */
@@ -225,38 +190,20 @@ body {
         height: 50px;
     }
 
-    .conf-step__seances {
+    .conf-step__sessions {
         width: 100%;
         padding: 0;
         gap: 20px;
         margin: 0;
     }
-
-    .conf-step__seances-movie:nth-child(2) {
-        left: 79px;
-    }
-
-    .conf-step__seances-movie:nth-child(3) {
-        left: 149px;
-    }
-
-    .conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(1) {
-        left: 193px;
-    }
-
-    .conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(2) {
-        left: 263px;
-    }
-
 }
 
 @media (min-width: 391px) and (max-width: 768px) {
-
     /* СЕТКА СЕАНСОВ */
 
     .film-collection {
         width: 100%;
-        grid-template-columns: 260px 260px;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
         margin-bottom: 30px;
     }
 
@@ -268,25 +215,9 @@ body {
         height: 50px;
     }
 
-    .conf-step__seances {
+    .conf-step__sessions {
         max-width: 552px;
         padding: 0;
         gap: 20px;
-    }
-
-    .conf-step__seances-movie:nth-child(2) {
-        left: 239px;
-    }
-
-    .conf-step__seances-movie:nth-child(3) {
-        left: 309px;
-    }
-
-    .conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(1) {
-        left: 417px;
-    }
-
-    .conf-step__seances-hall:nth-of-type(2) .conf-step__seances-movie:nth-child(2) {
-        left: 487px;
     }
 }

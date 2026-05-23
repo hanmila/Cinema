@@ -1,5 +1,5 @@
 nav {
-  width: 100%;
+  width: 100vw;
   max-width: 990px;
   margin: 0 auto 30px;
   padding-bottom: 10px;
@@ -13,7 +13,8 @@ nav {
 }
 
 .link-block {
-  min-width: 84px;
+  cursor: pointer;
+  min-width: 0;
   height: 48px;
   padding: 10px 20px;
   background-color: rgba(255, 255, 255, 0.9);
@@ -30,7 +31,7 @@ nav {
   text-decoration: none;
 
   display: flex;
-  flex: 0 0 124px;
+  flex: 1 1 0;
 }
 
 .today::before {
@@ -58,7 +59,7 @@ nav {
   font-weight: 700;
   font-size: 15px;
   background-color: #FFFFFF;
-  flex: 0 0 241px;
+  flex: 2 1 0;
 }
 
 .weekend {
@@ -75,26 +76,27 @@ nav {
 @media (max-width: 390px) {
   .link-first {
     min-width: 66px;
-    flex: 0 0 66px;
+    /* flex: 0 0 66px; */
   }
 
   .link-block {
     min-width: 50px;
     padding: 10px;
-    flex: 0 0 50px;
+    /*flex: 0 0 50px;*/
   }
 
   .link-large {
     min-width: 55px;
-    flex: 0 0 75px;
+    /*flex: 0 0 75px;*/
   }
 }
 
 @media (min-width: 391px) and (max-width: 768px) {
 
   .link-block {
-    max-width: 97px;
-    flex: 0 0 97px;
+    /*max-width: 97px;*/
+    /*flex: 0 0 97px;*/
+    padding: 10px;
   }
 
   .link-large {
@@ -104,7 +106,7 @@ nav {
   }
 
   .today::before {
-    font-size: 9px;
+    /*font-size: 9px;*/
   }
 
   .next {

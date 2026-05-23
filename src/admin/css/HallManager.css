@@ -2,7 +2,7 @@
 .conf-step__wrapper-block {
     width: 100%;
     max-width: 962px;
-    position: relative;
+    /*position: relative;*/
 }
 
 .conf-step__wrapper {
@@ -16,16 +16,26 @@
     position: relative;
 }
 
-/*.conf-step__wrapper-block:not(:last-child)::before {
+.section-header__start::before {
+    content: '';
+    width: 2px;
+    height: 48px;
+    background-color: #BC95D6;
+    position: absolute;
+    left: 61px;
+    top: 48px;
+}
+
+/* Контент секции */
+.section-style__start::before {
     content: '';
     width: 2px;
     height: 100%;
     background-color: #BC95D6;
     position: absolute;
     left: 61px;
-}*/
-
-/* Контент секции */
+    top: 0;
+}
 
 .hall-management-label {
     font-weight: 400;
@@ -135,10 +145,8 @@
         padding: 35px 31px;
     }
 
-    section:not(:last-child)::before,
-    .first-header::before,
-    .line-header::before,
-    .last-header::before {
+    .section-header__start::before,
+    .section-style__start::before {
         display: none;
     }
 

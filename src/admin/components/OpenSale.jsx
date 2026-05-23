@@ -3,91 +3,146 @@ import CollapsingHeader from './CollapsingHeader';
 import API from '../../api/api';
 import '../css/OpenSale.css';
 
-const OpenSale = ({ halls, hallStates, setHallStates }) => {
+const OpenSale = ({
+  halls,
+  hallStates,
+  setHallStates,
+  activeHallId,
+  setActiveHallId
+}) => {
   const [isOpen, setIsOpen] = useState(true);
-  const [selectedHallId, setSelectedHallId] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
 
   useEffect(() => {
-    if (halls.length > 0) {
-      setSelectedHallId(halls[0].id);
+    if (halls.length > 0 && !activeHallId) {
+      setActiveHallId(halls[0].id);
     }
-  }, [halls]);
+  }, [halls, activeHallId, setActiveHallId]);
 
   const getHallSaleState = (hallId) => {
     if (!hallId || !hallStates) return false;
-    return hallStates[hallId] || false;
+
+    // сначала проверяем локальное состояние
+    if (hallStates[hallId] !== undefined) {
+      return hallStates[hallId];
+    }
+
+    // если нет в state — берем из hall_open
+    const hall = halls.find(h => h.id === hallId);
+
+    return hall?.hall_open === 1;
   };
 
   const handleToggleSale = async () => {
     try {
       setIsLoading(true);
+
       const api = new API();
+
       const token = localStorage.getItem('token');
-      if (token) api.setToken(token);
 
-      const hall = halls.find(h => h.id === selectedHallId);
-      if (!hall) throw new Error('Зал не найден');
+      if (token) {
+        api.setToken(token);
+      }
 
-      const currentState = getHallSaleState(selectedHallId);
+      const hall = halls.find(h => h.id === activeHallId);
+
+      if (!hall) {
+        throw new Error('Зал не найден');
+      }
+
+      const currentState = getHallSaleState(activeHallId);
+
       const newState = !currentState;
 
       await api.changeHallStatus(hall.id, newState ? 1 : 0);
 
       setHallStates(prev => {
-        const updated = { ...prev, [selectedHallId]: newState };
-        localStorage.setItem("hallStates", JSON.stringify(updated));
+        const updated = {
+          ...prev,
+          [activeHallId]: newState
+        };
+
+        localStorage.setItem(
+          'hallStates',
+          JSON.stringify(updated)
+        );
+
         return updated;
       });
 
-      alert(newState
-        ? `Зал «${hall.hall_name}» теперь ОТКРЫТ для продаж`
-        : `Зал «${hall.hall_name}» теперь ЗАКРЫТ для продаж`);
+      alert(
+        newState
+          ? `Зал «${hall.hall_name}» теперь ОТКРЫТ для продаж`
+          : `Зал «${hall.hall_name}» теперь ЗАКРЫТ для продаж`
+      );
+
     } catch (e) {
       console.error('Ошибка при изменении статуса:', e);
-      alert('Не удалось изменить статус продаж: ' + e.message);
+
+      alert(
+        'Не удалось изменить статус продаж: ' + e.message
+      );
+
     } finally {
       setIsLoading(false);
     }
   };
 
+  const isSaleOpen = getHallSaleState(activeHallId);
+
   return (
     <section className="conf-step__wrapper-block open-sales__block">
-      <CollapsingHeader
-        title="ОТКРЫТЬ ПРОДАЖИ"
-        isOpen={isOpen}
-        toggleOpen={toggleOpen}
-      />
+
+      <div className="section-header__end">
+        <CollapsingHeader
+          title="ОТКРЫТЬ ПРОДАЖИ"
+          isOpen={isOpen}
+          toggleOpen={toggleOpen}
+        />
+      </div>
 
       {isOpen && (
-        <div className="conf-step__wrapper open-sales__block">
+        <div className="conf-step__wrapper open-sales__content">
+
           <span className="conf-step__paragraph open-sales__paragraph">
             Выберите зал для открытия / закрытия продаж:
           </span>
+
           <ul className="halls__list-buttons">
             {halls.map(hall => (
               <li
                 key={hall.id}
-                className={`halls__list-buttons-item ${hall.id === selectedHallId ? "chosen-hall" : ""}`}
-                onClick={() => setSelectedHallId(hall.id)}
+                className={`halls__list-buttons-item ${hall.id === activeHallId
+                    ? 'chosen-hall'
+                    : ''
+                  }`}
+                onClick={() => setActiveHallId(hall.id)}
               >
                 {hall.hall_name}
               </li>
             ))}
           </ul>
-          <div className="conf-step__paragraph open-sales__second-paragraph">
-            <span>Всё готово к открытию</span>
-          </div>
+
+          {!isSaleOpen && (
+            <div className="conf-step__paragraph open-sales__second-paragraph">
+              <span>Всё готово к открытию</span>
+            </div>
+          )}
+
           <button
             type="button"
             className="fieldset-button open-sales-btn"
             onClick={handleToggleSale}
-            disabled={isLoading || !selectedHallId}
+            disabled={isLoading || !activeHallId}
           >
-            {getHallSaleState(selectedHallId) ? 'Закрыть продажу билетов' : 'Открыть продажу билетов'}
+            {isSaleOpen
+              ? 'Закрыть продажу билетов'
+              : 'Открыть продажу билетов'}
           </button>
+
         </div>
       )}
     </section>
