@@ -31,7 +31,7 @@ const Navigation = ({ onDayChange }) => {
     return days;
   }, [today, weekOffset]);
 
-  const calendarRef = useRef(null);
+  const navRef = useRef(null);
 
   const handleSelect = (index) => {
     const newSelectedDate = weekDays[index];
@@ -74,17 +74,18 @@ const Navigation = ({ onDayChange }) => {
 
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Если календарь открыт
+      // и пользователь нажал НЕ внутри навигации
       if (
-        calendarRef.current &&
-        !calendarRef.current.contains(event.target)
+        isCalendarOpen &&
+        navRef.current &&
+        !navRef.current.contains(event.target)
       ) {
-        closeCalendar();
+        setIscalendarOpen(false);
       }
     };
 
-    if (isCalendarOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       document.removeEventListener(
@@ -155,7 +156,7 @@ const Navigation = ({ onDayChange }) => {
   };
 
   return (
-    <nav>
+    <nav ref={navRef}>
       {weekDays.map((date, index) => {
         const isSelected = index === selectedIndex;
         const isWeekend = date.getDay() === 0 || date.getDay() === 6;
@@ -172,8 +173,8 @@ const Navigation = ({ onDayChange }) => {
               }`}
             onClick={() => handleSelect(index)} // для возможности клика на всю вкладку, а не только на ссылку
           >
-            <a
-              href="#0"
+            <button
+              type="button"
               className={`${index === 0 ? "link-first" : "link"} ${isWeekend ? "weekend" : ""}`}
             >
               <span
@@ -190,10 +191,10 @@ const Navigation = ({ onDayChange }) => {
               >
                 {date.getDate()}
               </span>
-            </a>
+            </button>
 
             {isSelected && (
-              <div ref={calendarRef}>
+              <div>
                 <button
                   type="button"
                   className={`open-calendar__btn ${isCalendarOpen ? "open-calendar__btn--active" : ""

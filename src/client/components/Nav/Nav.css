@@ -26,7 +26,7 @@ nav {
     0px 0px 2px 0px rgba(0, 0, 0, 0.12),
     0px 2px 2px 0px rgba(0, 0, 0, 0.24);
 
-  font-weight: 400;
+  font-weight: 500;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0;
@@ -40,6 +40,27 @@ nav {
 .today::before {
   content: "Сегодня";
   display: block;
+}
+
+.link,
+.link-first {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  font-size: 14px;
+}
+
+.link:focus,
+.link-first:focus,
+.link:active,
+.link-first:active {
+  outline: none;
+  box-shadow: none;
 }
 
 .link {
@@ -59,6 +80,7 @@ nav {
 .link-large {
   width: 241px;
   height: 52px;
+  color: #646cff;
   font-weight: 700;
   font-size: 15px;
   background-color: #ffffff;
