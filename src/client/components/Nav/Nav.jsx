@@ -33,34 +33,42 @@ const Navigation = ({ onDayChange }) => {
 
   const navRef = useRef(null);
 
+  // Форматирование локальной даты
+  const formatDateForChange = (date) => {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  };
+
+  const selectDate = (newDate, index) => {
+    setSelectedDate(newDate);
+    setSelectedIndex(index);
+
+    onDayChange?.(
+      formatDateForChange(newDate)
+    );
+
+    setIscalendarOpen(false);
+  };
+
   const handleSelect = (index) => {
     const newSelectedDate = weekDays[index];
 
-    // Переключаем активную вкладку
-    setSelectedIndex(index);
-    // Сохраняем выбранную дату
-    setSelectedDate(newSelectedDate);
-
-    // Закрываем календарь
-    setIscalendarOpen(false);
-
-    onDayChange?.(
-      weekDays[index].toISOString().slice(0, 10)
-    );
+    selectDate(newSelectedDate, index);
   };
 
   // следующая неделя
   const handleNextWeek = () => {
     const newOffset = weekOffset + 6;
-    setWeekOffset(newOffset);
-    setSelectedIndex(0);
 
     const newStart = new Date(today);
     newStart.setDate(today.getDate() + newOffset);
 
-    onDayChange?.(
-      newStart.toISOString().slice(0, 10)
-    );
+    setWeekOffset(newOffset);
+
+    selectDate(newStart, 0);
   };
 
   // Для открытия и закрытия календаря
@@ -107,26 +115,12 @@ const Navigation = ({ onDayChange }) => {
       isSameDate(date, selected)
     );
 
-    console.log("Выбрана:", selected);
-    console.log("Текущие вкладки:", weekDays);
-    console.log("Найденный index:", index);
-
     if (index !== -1) {
-      // Дата уже отображается в навигации
-      setSelectedDate(selected);
-      setSelectedIndex(index);
-
-      onDayChange?.(
-        selected.toISOString().slice(0, 10)
-      );
-
-      // Закрываем календарь
-      setIscalendarOpen(false);
-
+      selectDate(selected, index);
       return;
     }
 
-    // Дата находится за пределами текущих 6 вкладок
+    // Если дата находится за пределами текущих 6 вкладок
     const todayStart = new Date(
       today.getFullYear(),
       today.getMonth(),
@@ -144,15 +138,9 @@ const Navigation = ({ onDayChange }) => {
     const newSelectedIndex =
       diffInDays - newWeekOffset;
 
-    setSelectedDate(selected);
     setWeekOffset(newWeekOffset);
-    setSelectedIndex(newSelectedIndex);
 
-    onDayChange?.(
-      selected.toISOString().slice(0, 10)
-    );
-
-    setIscalendarOpen(false);
+    selectDate(selected, newSelectedIndex);
   };
 
   return (
@@ -165,7 +153,7 @@ const Navigation = ({ onDayChange }) => {
         return (
           <div
             key={index}
-            className={`link-block 
+            className={`link-block
               ${isRealToday ? "today-block" : ""}
               ${isSelected
                 ? `link-large ${isCalendarOpen ? "calendar_opened" : ""}`

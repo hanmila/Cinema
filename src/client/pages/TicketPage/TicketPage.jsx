@@ -53,7 +53,7 @@ export default function TicketPage() {
   return (
     <ClientLayout>
       <section className="ticket-page">
-        <header className="client-header">
+        <header className="schedule-header">
           <ClientHeader />
           <Button onClick={() => navigate("/client/cinema")}>Расписание</Button>
         </header>

@@ -119,3 +119,10 @@
   background-repeat: repeat-x;
   vertical-align: super;
 }
+
+@media (max-width: 390px) {
+  .ticket-header {
+    max-width: 362px;
+    margin: 0 14px;
+  }
+}

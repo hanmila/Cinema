@@ -123,8 +123,13 @@ nav {
   .link-block.today-block {
     flex: 0 0 66px;
     min-width: 66px;
-    padding: 10px;
+    padding: 10px 5px;
     font-size: 12px;
+  }
+
+  .link-block:first-child {
+    min-width: 50px;
+    padding: 10px 5px;
   }
 
   .link-first {

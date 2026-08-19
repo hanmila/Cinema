@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ClientLayout from '../../components/ClientLayout';
 import ClientHeader from '../../components/ClientHeader/ClientHeader';
+import Button from '../../components/Button/Button';
 import API from '../../../api/api';
 import './PaymentPage.css';
 
@@ -83,7 +84,10 @@ export default function PaymentPage() {
   return (
     <ClientLayout>
       <section className="payment-page">
-        <ClientHeader />
+        <header className="schedule-header">
+          <ClientHeader />
+          <Button onClick={() => navigate("/client/cinema")}>Назад</Button>
+        </header>
         <div className="payment-container">
           <div className="payment-container-wrapper"> {/* Для узора под заголовком */}
             <div className="payment-header__block">
