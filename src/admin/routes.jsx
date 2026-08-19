@@ -1,7 +1,7 @@
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
-import AdminPage from "./pages/AdminPage";
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import LoginPage from './pages/LoginPage/LoginPage';
+import AdminPage from './pages/AdminPage/AdminPage';
 
 const AdminRoutes = () => {
   return (

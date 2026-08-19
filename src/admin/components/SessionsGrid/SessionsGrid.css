@@ -1,0 +1,222 @@
+.conf-step__wrapper-block {
+    width: 100%;
+    background-color: rgba(234, 233, 235, 0.95);
+    position: relative;
+    box-sizing: border-box;
+}
+
+.conf-step__wrapper {
+    height: 100%;
+}
+
+.conf-step__paragraph-button {
+    padding-top: 17px;
+    margin-bottom: 12px;
+}
+
+.film-collection {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 51px;
+}
+
+.film-block {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    display: flex;
+}
+
+.poster-picture {
+    width: 38px;
+    height: 50px;
+}
+
+.film__description {
+    display: grid;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 14px;
+    align-content: space-between;
+}
+
+.film-name {
+    font-weight: 500;
+    line-height: 12px;
+    text-transform: capitalize;
+    color: rgba(0, 0, 0, 1);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+.film-duration {
+    font-weight: 400;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.film-delete-btn {
+    width: 24px;
+    align-self: end;
+}
+
+.add-film__btn {
+    width: 194px;
+    margin-bottom: 12px;
+}
+
+/* Залы */
+.conf-step__sessions {
+    width: 100%;
+    max-width: 816px;
+    padding-left: 35px;
+    padding-right: 35px;
+    display: grid;
+    gap: 35px;
+    margin-bottom: 35px;
+    box-sizing: border-box;
+}
+
+h3 {
+    margin: 0;
+    height: 18px;
+    max-width: 756px;
+    max-height: 18.4px;
+
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.conf-step__sessions-timeline {
+    width: 100%;
+    max-width: 720px;
+    height: 60px;
+    border: 1px solid #848484;
+    display: flex;
+    position: relative;
+}
+
+.conf-step__sessions-movie {
+    height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 2px;
+}
+
+.conf-step__sessions-movie::before {
+    content: '';
+    width: 1px;
+    height: 5px;
+    display: grid;
+    background-color: #848484;
+    position: absolute;
+    top: 60px;
+    left: 1px;
+}
+
+.conf-step__sessions-movie-title {
+    width: min-content;
+
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 10px;
+    color: #000;
+}
+
+.conf-step__sessions-movie-start {
+    width: 30px;
+    height: 14px;
+
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 14px;
+    color: #848484;
+    position: absolute;
+    top: 66px;
+    left: 1px;
+}
+
+.trash-bin {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 64px;
+    height: 64px;
+    z-index: 1000;
+}
+
+@media (max-width: 390px) {
+    body {
+        background-position: center;
+        background-size: cover;
+    }
+
+    .header {
+        width: 100%;
+        height: auto;
+        padding: 20px 16px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .conf-step__wrapper {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* СЕТКА СЕАНСОВ */
+
+    .conf-step__paragraph-button {
+        margin-bottom: 36px;
+    }
+
+    .film-collection {
+        width: 100%;
+        grid-template-columns: 1fr;
+        margin-bottom: 36px;
+    }
+
+    .film-block {
+        max-width: 260px;
+    }
+
+    .poster-picture {
+        height: 50px;
+    }
+
+    .conf-step__sessions {
+        width: 100%;
+        padding: 0;
+        gap: 20px;
+        margin: 0;
+    }
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+    /* СЕТКА СЕАНСОВ */
+
+    .film-collection {
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        margin-bottom: 30px;
+    }
+
+    .film-block {
+        max-width: 260px;
+    }
+
+    .poster-picture {
+        height: 50px;
+    }
+
+    .conf-step__sessions {
+        max-width: 552px;
+        padding: 0;
+        gap: 20px;
+    }
+}

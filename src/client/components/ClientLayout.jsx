@@ -1,6 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom'; //он уже не нужен, надо убрать после финальной проверки //
-import '../css/ClientLayout.css';
+import './ClientLayout.css';
 
 
 export default function Layout({ children }) {

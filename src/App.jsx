@@ -1,6 +1,6 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import AdminRoutes from "./admin/routes";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import AdminRoutes from './admin/routes';
 import ClientRoutes from './client/routes';
 
 const App = () => {

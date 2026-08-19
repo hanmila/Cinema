@@ -1,9 +1,9 @@
-import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import SchedulePage from "./pages/SchedulePage";
-import HallPage from "./pages/HallPage";
-import PaymentPage from "./pages/PaymentPage";
-import TicketPage from "./pages/TicketPage";
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import SchedulePage from './pages/SchedulePage/SchedulePage';
+import HallPage from './pages/HallPage/HallPage';
+import PaymentPage from './pages/PaymentPage/PaymentPage';
+import TicketPage from './pages/TicketPage/TicketPage';
 
 const ClientRoutes = () => {
   return (

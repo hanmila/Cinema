@@ -1,0 +1,372 @@
+* {
+    box-sizing: border-box;
+    /*outline: solid 1px red; /* показывает подсветку элементов, которые выходят за границы тела страницы */
+}
+
+.conf-step__wrapper-block {
+    width: 100%;
+    max-width: 962px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.section-header__middle::before {
+    content: '';
+    width: 2px;
+    height: 95px;
+    background-color: #BC95D6;
+    position: absolute;
+    left: 61px;
+}
+
+.section-style__middle::before {
+    content: '';
+    width: 2px;
+    height: 100%;
+    background-color: #BC95D6;
+    position: absolute;
+    top: 0;
+    left: 61px;
+}
+
+.configure {
+    display: grid;
+    gap: 12px;
+}
+
+.hall-configuration__paragraph {
+    width: 100%;
+    max-width: 816px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #000;
+}
+
+.halls__list-buttons {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    padding: 0;
+    gap: 10px 0;
+}
+
+.halls__list-buttons-item {
+    width: 81px;
+    height: 42px;
+    padding: 8px;
+
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.45);
+    box-shadow:
+        0px 0px 3px 0px rgba(0, 0, 0, 0.12),
+        0px 3px 3px 0px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: #000000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-break: break-word;
+    white-space: normal;
+}
+
+.halls__list-buttons-item:hover {
+    box-shadow: 0px 6px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.chosen-hall {
+    width: 90px;
+    height: 46px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow:
+        0px 0px 2px 0px rgba(0, 0, 0, 0.12),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.24),
+        0px 6px 8px 0px rgba(0, 0, 0, 0.24);
+    ;
+
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.places {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.hall-conf-step__legend {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap
+}
+
+.hall-conf-step-label {
+    width: 114px;
+    height: 52px;
+    display: grid;
+    gap: 1.6px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: rgba(132, 132, 132, 1);
+}
+
+.conf-step-input {
+    width: 114px;
+    padding: 8px 8.8px 9px 8.8px;
+    border: 1px solid #B7B7B7;
+    color: #757575;
+    background-color: #FFFFFF;
+}
+
+.multiplication-sign {
+    width: 10px;
+    height: 21px;
+    margin: 0;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #848484;
+}
+
+.frame {
+    display: grid;
+    gap: 11px;
+    margin-bottom: 9px;
+}
+
+.places-type {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.conf-step__chair {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+}
+
+.regular-chair {
+    border: 1px solid #393939;
+    background-color: #C4C4C4;
+}
+
+.vip-chair {
+    border: 1px solid #0A828A;
+    background-color: #B0D6D8;
+    background-image: url("conf-step__chair-vip.png");
+}
+
+.blocked-chair {
+    border: 1px solid #C4C4C4;
+}
+
+.regular {
+    border: 1px solid #393939;
+    background-color: #C4C4C4;
+    cursor: pointer;
+}
+
+.vip {
+    border: 1px solid #0A828A;
+    background-color: #B0D6D8;
+    background-image: url("conf-step__chair-vip.png");
+    cursor: pointer;
+}
+
+.blocked {
+    border: 1px solid #C4C4C4;
+    cursor: pointer;
+}
+
+.places-type__explanation {
+    display: flex;
+}
+
+.conf-step__explanation {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #848484;
+    padding: 5px 3px;
+}
+
+.conf-step__hint {
+    max-width: 826px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #848484;
+}
+
+.conf-step__hall {
+    width: 100%;
+    overflow-x: auto;
+    padding-top: 26px;
+    padding-bottom: 36px;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.conf-step__hall::before {
+    content: 'экран';
+    display: flex;
+    width: max-content;
+    height: max-content;
+    margin: 0 auto 20px;
+    max-width: 803.6px;
+    max-height: 18.4px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    letter-spacing: 19px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.conf-step__hall-wrapper {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    gap: 10px;
+}
+
+.conf-step__row {
+    display: flex;
+    gap: 10px;
+}
+
+.fieldset {
+    width: 100%;
+    max-width: 816px;
+    height: 57px;
+    gap: 15px;
+    padding-top: 17px;
+    display: flex;
+    justify-content: center;
+}
+
+.cancel__btn {
+    width: 121px;
+    height: 40px;
+    color: #63536C;
+    background-color: #FFFFFF;
+    border: solid #FFFFFF;
+}
+
+.save__btn {
+    width: 159px;
+    height: 40px;
+}
+
+
+@media (max-width: 390px) {
+    body {
+        background-position: center;
+        background-size: cover;
+    }
+
+    .header {
+        width: 100%;
+        height: auto;
+        padding: 20px 16px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .conf-step__wrapper {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .section-header__middle::before,
+    .section-style__middle::before {
+        display: none;
+    }
+
+    /* КОНФИГУРАЦИЯ ЗАЛОВ */
+    .conf-step__paragraph {
+        max-width: 341px;
+    }
+
+    .conf-step__hall {
+        overflow-x: auto;
+        padding: 15px;
+    }
+
+    .conf-step__hall::before {
+        margin: 0 auto 15px;
+        letter-spacing: 8px;
+        font-size: 14px;
+    }
+
+    .conf-step__row {
+        gap: 6px;
+    }
+
+    .conf-step__chair {
+        width: 18px;
+        height: 18px;
+    }
+
+    .fieldset {
+        width: 100%;
+        gap: 10px;
+        height: auto;
+    }
+
+    .fieldset-button {
+        margin: auto;
+    }
+
+}
+
+@media (min-width: 391px) and (max-width: 768px) {
+    main {
+        max-width: 768px;
+        margin: 0 auto;
+    }
+
+    .halls__list {
+        max-width: 597px;
+        margin: 10px 0;
+    }
+
+    .conf-step__paragraph {
+        max-width: 414px;
+    }
+
+    .conf-step__hall {
+        max-width: 623px;
+    }
+
+    .conf-step__hall::before {
+        margin: 0 auto 15px;
+        letter-spacing: 8px;
+        font-size: 14px;
+    }
+
+    .fieldset {
+        width: 100%;
+        gap: 10px;
+        height: auto;
+    }
+}

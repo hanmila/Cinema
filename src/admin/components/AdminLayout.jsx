@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/AdminLayout.css';
+import './AdminLayout.css';
 
 // принимает вложенный контент (children) //
 export default function AdminLayout({ children }) {
